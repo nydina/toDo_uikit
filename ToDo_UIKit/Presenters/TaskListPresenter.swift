@@ -12,12 +12,12 @@ class TaskListPresenter {
         Task {
             do {
                 let tasks = try await recordService.getTasks()
-                let taskTitles = tasks.map { $0.task }
-                view?.displayTasks(taskTitles)
+                view?.displayTasks(tasks)
             } catch {
                 view?.displayError(message: error.localizedDescription)
             }
         }
     }
 }
+
 

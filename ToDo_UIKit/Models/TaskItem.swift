@@ -13,13 +13,15 @@ struct Record: Codable {
 }
 
 // MARK: - TaskItem
-struct TaskItem: Codable {
+struct TaskItem: Codable, Hashable {
     let toDoBefore, priority, task: String
+    var isComplete: Bool?
 
     enum CodingKeys: String, CodingKey {
         case toDoBefore = "To do before"
         case priority = "Priority"
         case task = "Task"
+        case isComplete = "Done"
     }
 }
 

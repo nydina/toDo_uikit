@@ -1,15 +1,14 @@
 import UIKit
 
 protocol TaskListView: AnyObject {
-    func displayTasks(_ tasks: [String])
+    func displayTasks(_ tasks: [TaskItem])
     func displayError(message: String)
 }
 
-class TaskListViewController: UICollectionViewController, TaskListView {
+
+class TaskListViewController: UICollectionViewController {
     var presenter: TaskListPresenter!
 
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
 
     var dataSource: DataSource!
 
@@ -19,17 +18,12 @@ class TaskListViewController: UICollectionViewController, TaskListView {
         let listLayout = listLayout()
         collectionView.collectionViewLayout = listLayout
 
-        let cellRegistration = UICollectionView.CellRegistration {
-            (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = itemIdentifier
-            cell.contentConfiguration = contentConfiguration
-        }
+        let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
 
         dataSource = DataSource(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
+            (collectionView: UICollectionView, indexPath: IndexPath, taskItem: TaskItem) in
             return collectionView.dequeueConfiguredReusableCell(
-                using: cellRegistration, for: indexPath, item: itemIdentifier)
+                using: cellRegistration, for: indexPath, item: taskItem)
         }
 
         collectionView.dataSource = dataSource
@@ -46,13 +40,16 @@ class TaskListViewController: UICollectionViewController, TaskListView {
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)
     }
 
-    // Protocol conformance for TaskListView
-    func displayTasks(_ tasks: [String]) {
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(tasks)
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
+
+}
+
+extension TaskListViewController: TaskListView {
+    func displayTasks(_ tasks: [TaskItem]) {
+            var snapshot = Snapshot()
+            snapshot.appendSections([0])
+            snapshot.appendItems(tasks)
+            dataSource.apply(snapshot, animatingDifferences: true)
+        }
 
     func displayError(message: String) {
         print("Error: \(message)")

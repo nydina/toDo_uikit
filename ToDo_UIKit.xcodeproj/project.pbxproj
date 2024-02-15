@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1040F9F42B7E4BAA00C9DBF1 /* TaskListViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1040F9F32B7E4BAA00C9DBF1 /* TaskListViewController+DataSource.swift */; };
 		1043202C2B7CB5550008F041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043202B2B7CB5550008F041 /* AppDelegate.swift */; };
 		1043202E2B7CB5550008F041 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043202D2B7CB5550008F041 /* SceneDelegate.swift */; };
 		104320302B7CB5550008F041 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1043202F2B7CB5550008F041 /* TaskListViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1040F9F32B7E4BAA00C9DBF1 /* TaskListViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskListViewController+DataSource.swift"; sourceTree = "<group>"; };
 		104320282B7CB5550008F041 /* ToDo_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1043202B2B7CB5550008F041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1043202D2B7CB5550008F041 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +68,7 @@
 			children = (
 				104320452B7CCEB10008F041 /* Presenters */,
 				1043203F2B7CB5850008F041 /* Models */,
-				104320442B7CCE880008F041 /* Views */,
+				104320442B7CCE880008F041 /* TaskListViewController */,
 				1043202B2B7CB5550008F041 /* AppDelegate.swift */,
 				1043202D2B7CB5550008F041 /* SceneDelegate.swift */,
 				104320312B7CB5550008F041 /* Main.storyboard */,
@@ -87,12 +89,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		104320442B7CCE880008F041 /* Views */ = {
+		104320442B7CCE880008F041 /* TaskListViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1043202F2B7CB5550008F041 /* TaskListViewController.swift */,
+				1040F9F32B7E4BAA00C9DBF1 /* TaskListViewController+DataSource.swift */,
 			);
-			path = Views;
+			path = TaskListViewController;
 			sourceTree = "<group>";
 		};
 		104320452B7CCEB10008F041 /* Presenters */ = {
@@ -180,6 +183,7 @@
 				104320412B7CB5990008F041 /* TaskItem.swift in Sources */,
 				104320492B7CD7320008F041 /* Constants.swift in Sources */,
 				104320432B7CCDC40008F041 /* RecordService.swift in Sources */,
+				1040F9F42B7E4BAA00C9DBF1 /* TaskListViewController+DataSource.swift in Sources */,
 				104320472B7CCF3D0008F041 /* TaskListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
