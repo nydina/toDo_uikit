@@ -1,7 +1,7 @@
 import UIKit
 
 protocol TaskListView: AnyObject {
-    func displayTasks(_ tasks: [TaskItem])
+    func displayTasks(_ tasks: [Record])
     func displayError(message: String)
 }
 
@@ -21,7 +21,7 @@ class TaskListViewController: UICollectionViewController {
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
 
         dataSource = DataSource(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, taskItem: TaskItem) in
+            (collectionView: UICollectionView, indexPath: IndexPath, taskItem: Record) in
             return collectionView.dequeueConfiguredReusableCell(
                 using: cellRegistration, for: indexPath, item: taskItem)
         }
@@ -30,7 +30,7 @@ class TaskListViewController: UICollectionViewController {
 
         // Initialize the presenter and fetch data
         presenter = TaskListPresenter(view: self)
-        presenter.fetchData()
+        presenter.getTasks()
     }
 
     private func listLayout() -> UICollectionViewCompositionalLayout {
@@ -44,7 +44,7 @@ class TaskListViewController: UICollectionViewController {
 }
 
 extension TaskListViewController: TaskListView {
-    func displayTasks(_ tasks: [TaskItem]) {
+    func displayTasks(_ tasks: [Record]) {
             var snapshot = Snapshot()
             snapshot.appendSections([0])
             snapshot.appendItems(tasks)
