@@ -2,13 +2,11 @@ import UIKit
 
 protocol TaskListView: AnyObject {
     func displayTasks(_ tasks: [Record])
-    func displayError(message: String)
 }
 
 
 class TaskListViewController: UICollectionViewController {
     var presenter: TaskListPresenter!
-
 
     var dataSource: DataSource!
 
@@ -29,8 +27,8 @@ class TaskListViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
 
         // Initialize the presenter and fetch data
-        presenter = TaskListPresenter(view: self)
-        presenter.getTasks()
+        presenter = TaskListPresenter(view: self, recordService: RecordService())
+        Task {try await presenter.getTasks()}
     }
 
     private func listLayout() -> UICollectionViewCompositionalLayout {
@@ -50,8 +48,4 @@ extension TaskListViewController: TaskListView {
             snapshot.appendItems(tasks)
             dataSource.apply(snapshot, animatingDifferences: true)
         }
-
-    func displayError(message: String) {
-        print("Error: \(message)")
-    }
 }

@@ -1,6 +1,10 @@
 import Foundation
+protocol APIService: AnyObject {
+    func getTasks() async throws -> [Record]
+    func patchTask(dataToUpdate: [String: Any]) async throws
+}
 
-class RecordService {
+class RecordService: APIService {
     func getTasks() async throws -> [Record] {
         guard let url = URL(string: Constants.urlAPI) else {
             throw ServiceError.invalidURL
