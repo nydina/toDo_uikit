@@ -2,8 +2,8 @@ import Foundation
 
 class TaskListPresenter {
     weak var view: TaskListView?
-    let recordService : APIService
-    var tasks: [Record] = []
+    private let recordService : APIService
+    private var tasks: [Record] = []
 
 
     init(view: TaskListView, recordService: APIService) {
@@ -16,23 +16,37 @@ class TaskListPresenter {
         view?.displayTasks(tasks)
     }
 
-    func updateTask(withId recordId: String, isComplete: Bool) async throws {
+    private func updateTask(_ record: Record) async throws {
+        let updatedIsComplete = record.fields.isComplete ?? false // Use a default value if isComplete is nil
+
         let dataToUpdate: [String: Any] = [
             "records": [
                 [
-                    "id": recordId,
-                    "fields": ["Done": isComplete]
+                    "id": record.id,
+                    "fields": ["Done": updatedIsComplete]
                 ]
             ]
         ]
 
-        // Update the task using the provided data
         try await recordService.patchTask(dataToUpdate: dataToUpdate)
 
-        // Fetch and display the updated tasks
-        tasks = try await recordService.getTasks()
+        if let index = tasks.firstIndex(where: {
+            $0.id == record.id
+        }) {
+            tasks[index] = record
+        }
+
         view?.displayTasks(tasks)
     }
+
+    func completeTask(_ record: Record) async throws {
+        var record = record
+        record.fields.isComplete = record.fields.isComplete ?? false
+        record.fields.isComplete?.toggle()
+
+        try await updateTask(record)
+    }
+
 }
 
 
