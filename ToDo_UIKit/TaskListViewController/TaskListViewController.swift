@@ -31,6 +31,23 @@ class TaskListViewController: UICollectionViewController {
         Task {try await presenter.getTasks()}
     }
 
+    override func collectionView(
+        _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+        guard let selectedRecord = dataSource.itemIdentifier(for: indexPath) else {
+            return false
+        }
+
+        pushDetailView(for: selectedRecord)
+        return false
+    }
+
+    func pushDetailView(for record: Record) {
+        let viewController = TaskViewController(record: record)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
+
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
         listConfiguration.showsSeparators = false

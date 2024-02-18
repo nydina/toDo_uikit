@@ -26,4 +26,12 @@ struct TaskItem: Codable, Hashable {
     }
 }
 
+//extension [Record] {
+//    func indexOfRecord(withId id: String) -> Self.Index {
+//        guard let index = firstIndex(where: { $0.id == id }) else {
+//            fatalError()
+//        }
+//        return index
+//    }
+//}
 
