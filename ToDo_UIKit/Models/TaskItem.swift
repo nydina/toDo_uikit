@@ -9,7 +9,7 @@ struct RecordsResponse: Codable {
 // MARK: - Record
 struct Record: Codable, Hashable {
     let id, createdTime: String
-    let fields: TaskItem
+    var fields: TaskItem
 
 }
 

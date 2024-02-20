@@ -3,4 +3,69 @@
    uuid = "59DA167D-A2C0-42F2-A083-3202FC79AC3F"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DEBBA6C-5403-4C38-B5EA-EA0FA1D96A84"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDo_UIKitTests/TaskDetailPresenterTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "testDisplayTaskSuccess()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DEBBA6C-5403-4C38-B5EA-EA0FA1D96A84 - da65fffe5fd4029f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for ToDo_UIKitTests.TaskDetailPresenterTests.testDisplayTaskSuccess() async throws -&gt; ()"
+                  moduleName = "ToDo_UIKitTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drazafindratsira/Desktop/Dina/ToDo_UIKit/ToDo_UIKitTests/TaskDetailPresenterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "4DEBBA6C-5403-4C38-B5EA-EA0FA1D96A84 - 54488399348daea9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for ToDo_UIKitTests.TaskDetailPresenterTests.testDisplayTaskSuccess() async throws -&gt; ()"
+                  moduleName = "ToDo_UIKitTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drazafindratsira/Desktop/Dina/ToDo_UIKit/ToDo_UIKitTests/TaskDetailPresenterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "4DEBBA6C-5403-4C38-B5EA-EA0FA1D96A84 - 38791781d5bdc69d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for ToDo_UIKitTests.TaskDetailPresenterTests.testDisplayTaskSuccess() async throws -&gt; ()"
+                  moduleName = "ToDo_UIKitTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/drazafindratsira/Desktop/Dina/ToDo_UIKit/ToDo_UIKitTests/TaskDetailPresenterTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

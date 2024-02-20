@@ -26,10 +26,26 @@ class TaskListViewController: UICollectionViewController {
 
         collectionView.dataSource = dataSource
 
-        // Initialize the presenter and fetch data
         presenter = TaskListPresenter(view: self, recordService: RecordService())
-        Task {try await presenter.getTasks()}
+        Task { try await presenter.getTasks() }
     }
+
+    override func collectionView(
+        _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+        guard let selectedRecord = dataSource.itemIdentifier(for: indexPath) else {
+            return false
+        }
+
+        pushDetailView(for: selectedRecord)
+        return false
+    }
+
+    func pushDetailView(for record: Record) {
+        let viewController = TaskDetailViewController(record: record)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+
 
     private func listLayout() -> UICollectionViewCompositionalLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
