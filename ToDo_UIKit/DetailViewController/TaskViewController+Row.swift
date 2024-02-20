@@ -1,6 +1,6 @@
 import UIKit
 
-extension TaskViewController {
+extension TaskDetailViewController {
     enum Row: Hashable {
         case date
         case notes
@@ -29,5 +29,17 @@ extension TaskViewController {
             }
         }
 
+        func text(record: Record) -> String {
+            switch self {
+            case .date:
+                record.fields.toDoBefore
+            case .notes:
+                record.fields.task
+            case .priority:
+                record.fields.priority
+            case .title:
+                record.fields.task
+            }
+        }
     }
 }

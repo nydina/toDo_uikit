@@ -1,7 +1,7 @@
 import Foundation
 
 class TaskListPresenter {
-    weak var view: TaskListView?
+    weak private var view: TaskListView?
     private let recordService : APIService
     private var tasks: [Record] = []
 

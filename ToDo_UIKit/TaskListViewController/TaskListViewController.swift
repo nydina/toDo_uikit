@@ -26,9 +26,8 @@ class TaskListViewController: UICollectionViewController {
 
         collectionView.dataSource = dataSource
 
-        // Initialize the presenter and fetch data
         presenter = TaskListPresenter(view: self, recordService: RecordService())
-        Task {try await presenter.getTasks()}
+        Task { try await presenter.getTasks() }
     }
 
     override func collectionView(
@@ -43,7 +42,7 @@ class TaskListViewController: UICollectionViewController {
     }
 
     func pushDetailView(for record: Record) {
-        let viewController = TaskViewController(record: record)
+        let viewController = TaskDetailViewController(record: record)
         navigationController?.pushViewController(viewController, animated: true)
     }
 

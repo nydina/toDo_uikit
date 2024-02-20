@@ -25,7 +25,7 @@ final class TaskListPresenterTests: XCTestCase {
 
     func testCompleteTaskSuccess() async throws {
         // Given
-        var record = Record(id: "1", createdTime: "2022-02-15", fields: TaskItem(toDoBefore: "2022-02-20", priority: "High", task: "Task 1", isComplete: false))
+        let record = Record(id: "1", createdTime: "2022-02-15", fields: TaskItem(toDoBefore: "2022-02-20", priority: "High", task: "Task 1", isComplete: false))
 
         // When
         try await presenter.completeTask(record)

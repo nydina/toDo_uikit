@@ -1,11 +1,12 @@
 import UIKit
 
-class TaskViewController: UICollectionViewController {
+class TaskDetailViewController: UICollectionViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Int, Row>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Row>
 
-    var record: Record
+    private var record: Record
     private var dataSource: DataSource!
+    private var presenter: TaskDetailPresenter!
 
     init(record: Record) {
         self.record = record
@@ -27,28 +28,22 @@ class TaskViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(
                 using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
-        updateSnapshot()
+        presenter = TaskDetailPresenter(view: self)
+        presenter.displayTask()
     }
 
-    func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
+    private func cellRegistrationHandler(cell: UICollectionViewListCell, indexPath: IndexPath, row: Row) {
         var contentConfiguration = cell.defaultContentConfiguration()
-        contentConfiguration.text = text(for: row)
+        contentConfiguration.text = row.text(record: record)
         contentConfiguration.textProperties.font = UIFont.preferredFont(forTextStyle: row.textStyle)
         contentConfiguration.image = row.image
         cell.contentConfiguration = contentConfiguration
         cell.tintColor = .purple
     }
+}
 
-    func text(for row: Row) -> String? {
-        switch row {
-        case .date: return record.fields.toDoBefore
-        case .notes: return record.fields.task
-        case .priority: return record.fields.priority
-        case .title: return record.fields.task
-        }
-    }
-
-    private func updateSnapshot() {
+extension TaskDetailViewController: TaskDetailView {
+    func displayTask() {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems([Row.title, Row.date, Row.priority, Row.notes], toSection: 0)
