@@ -14,9 +14,9 @@ final class TaskDetailPresenterTests: XCTestCase {
     func testDisplayTaskSuccess() async throws {
         // When
         presenter.displayTask()
-
+        
+        // Then
         await fulfillment(of: [mockView.expectDisplayTaskWasCalled], timeout: 1)
-
     }
 
 }

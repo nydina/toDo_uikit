@@ -16,9 +16,12 @@ extension TaskListViewController {
         // Access the TaskItem from the Record
         let taskItem = record.fields
 
+        let dueDate = taskItem.toDoBefore
+        let formatedDueDate = dateFormatter(inputString: dueDate)
+        
         var contentConfiguration = cell.defaultContentConfiguration()
         contentConfiguration.text = taskItem.task
-        contentConfiguration.secondaryText = taskItem.toDoBefore
+        contentConfiguration.secondaryText = formatedDueDate ?? dueDate
         contentConfiguration.secondaryTextProperties.font = UIFont.preferredFont(
             forTextStyle: .caption1)
         cell.contentConfiguration = contentConfiguration

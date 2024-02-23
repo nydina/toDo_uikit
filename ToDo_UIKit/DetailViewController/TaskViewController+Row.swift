@@ -32,13 +32,15 @@ extension TaskDetailViewController {
         func text(record: Record) -> String {
             switch self {
             case .date:
-                record.fields.toDoBefore
+                let dateString = record.fields.toDoBefore
+                let formattedDate = dateFormatter(inputString: dateString)
+                return formattedDate ?? dateString
             case .notes:
-                record.fields.task
+                return record.fields.task
             case .priority:
-                record.fields.priority
+                return "\(record.fields.priority) priority"
             case .title:
-                record.fields.task
+                return record.fields.task
             }
         }
     }

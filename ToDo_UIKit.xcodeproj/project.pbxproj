@@ -23,6 +23,8 @@
 		104B8F3E2B83C04A002EE2DC /* TaskDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104B8F3D2B83C04A002EE2DC /* TaskDetailPresenter.swift */; };
 		1061E4FB2B7F67E500DA5D52 /* TaskListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061E4FA2B7F67E500DA5D52 /* TaskListPresenterTests.swift */; };
 		1080364C2B851DF200D87196 /* TaskDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1080364B2B851DF200D87196 /* TaskDetailPresenterTests.swift */; };
+		1080364E2B8557B300D87196 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1080364D2B8557B300D87196 /* DateFormatter.swift */; };
+		108036502B8884C500D87196 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1080364F2B8884C500D87196 /* DateFormatterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		1061E4F12B7F67B200DA5D52 /* ToDo_UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDo_UIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1061E4FA2B7F67E500DA5D52 /* TaskListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenterTests.swift; sourceTree = "<group>"; };
 		1080364B2B851DF200D87196 /* TaskDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailPresenterTests.swift; sourceTree = "<group>"; };
+		1080364D2B8557B300D87196 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		1080364F2B8884C500D87196 /* DateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				104320342B7CB5560008F041 /* Assets.xcassets */,
 				104320362B7CB5560008F041 /* LaunchScreen.storyboard */,
 				104320392B7CB5560008F041 /* Info.plist */,
+				1080364D2B8557B300D87196 /* DateFormatter.swift */,
 			);
 			path = ToDo_UIKit;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 			children = (
 				1061E4FA2B7F67E500DA5D52 /* TaskListPresenterTests.swift */,
 				1080364B2B851DF200D87196 /* TaskDetailPresenterTests.swift */,
+				1080364F2B8884C500D87196 /* DateFormatterTests.swift */,
 			);
 			path = ToDo_UIKitTests;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				104B8F3E2B83C04A002EE2DC /* TaskDetailPresenter.swift in Sources */,
 				104320472B7CCF3D0008F041 /* TaskListPresenter.swift in Sources */,
 				104B8F342B815B8A002EE2DC /* TaskDetailViewController.swift in Sources */,
+				1080364E2B8557B300D87196 /* DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +284,7 @@
 			files = (
 				1080364C2B851DF200D87196 /* TaskDetailPresenterTests.swift in Sources */,
 				1061E4FB2B7F67E500DA5D52 /* TaskListPresenterTests.swift in Sources */,
+				108036502B8884C500D87196 /* DateFormatterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
